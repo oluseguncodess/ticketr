@@ -1,11 +1,11 @@
 // /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-
 import { api } from "@/convex/_generated/api";
 import { useQuery } from "convex/react";
 import Spinner from "./Spinner";
 import { CalendarDays, Ticket } from "lucide-react";
 import EventCard from "./EventCard";
+import { getDate } from "@/lib/utils";
 
 export default function EventList() {
   const events = useQuery(api.events.get);
@@ -18,7 +18,7 @@ export default function EventList() {
     );
   }
 
-  const now = Date.now();
+  const now = getDate();
 
   const upcomingEvents = events
     .filter((event) => event.eventDate > now)

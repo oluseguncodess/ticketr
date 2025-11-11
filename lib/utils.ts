@@ -11,3 +11,7 @@ export function cn(...inputs: ClassValue[]) {
 export function useStorageUrl(storageId: Id<"_storage"> | undefined) {
   return useQuery(api.storage.getUrl, storageId ? { storageId } : "skip");
 }
+
+export function getDate() {
+  return Date.now()
+}
